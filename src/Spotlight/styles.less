@@ -1,0 +1,54 @@
+#command-menu {
+  &.ui.card {
+    position: absolute;
+    width: 600px;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    padding: 1em;
+    background-color: rgba(71, 71, 71, 0.9);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    .content {
+      padding: 0;
+    }
+  }
+
+  .ui.input {
+    padding: 1em;
+    background-color: #373737;
+    color: #fff;
+    border-radius: 0.3em !important;
+
+    input {
+      color: #fff;
+    }
+  }
+
+  .ui.list {
+    margin-top: 1em;
+    .item {
+      padding: 1em;
+      color: #fff;
+
+      &:hover {
+        background-color: transparent;
+      }
+
+      &.active {
+        background-color: #4a7c87;
+      }
+
+      .content {
+        display: flex;
+        align-items: center;
+
+        .icon {
+          margin-right: 0.3em;
+        }
+      }
+    }
+  }
+}
