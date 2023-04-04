@@ -1,0 +1,14 @@
+/*******************************
+        Global Overrides
+*******************************/
+
+@import '@eeacms/volto-eea-design-system/../theme/themes/eea/globals/utilities';
+
+
+.color-fg-default { color: @primaryColor !important; }
+
+.color-bg-default { background-color: @primaryColor !important; }
+
+video {
+  display: block;
+}

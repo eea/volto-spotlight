@@ -48,15 +48,6 @@ body {
 
 /* Mobile */
 .onMobile({
-  [class*='mobile hidden'],
-  [class*='tablet only']:not(.mobile),
-  [class*='computer only']:not(.mobile),
-  [class*='large screen only']:not(.mobile),
-  [class*='widescreen only']:not(.mobile),
-  [class*='or lower hidden'] {
-    display: none !important;
-  }
-
   .ui.container {
     --m-gutter: 1rem;
     max-width: @mobileWidthCSS !important;
@@ -92,17 +83,19 @@ body {
   }
 });
 
-/* Tablet */
-.onTablet({
-  [class*='mobile only']:not(.tablet),
-  [class*='tablet hidden'],
-  [class*='computer only']:not(.tablet),
-  [class*='large screen only']:not(.tablet),
-  [class*='widescreen only']:not(.tablet),
-  [class*='or lower hidden']:not(.mobile) {
+@media @mobile {
+  [class*='mobile hidden'],
+  [class*='tablet only']:not(.mobile),
+  [class*='computer only']:not(.mobile),
+  [class*='large screen only']:not(.mobile),
+  [class*='widescreen only']:not(.mobile),
+  [class*='or lower hidden'] {
     display: none !important;
   }
+}
 
+/* Tablet */
+.onTablet({
   .ui.container {
     --m-gutter: @emSize * 1.375;
     max-width: @tabletWidthCSS !important;
@@ -138,17 +131,19 @@ body {
   }
 });
 
-/* Small Monitor */
-.onSmallMonitor({
-  [class*='mobile only']:not(.computer),
-  [class*='tablet only']:not(.computer),
-  [class*='computer hidden'],
-  [class*='large screen only']:not(.computer),
-  [class*='widescreen only']:not(.computer),
-  [class*='or lower hidden']:not(.tablet):not(.mobile) {
+@media @tablet {
+  [class*='mobile only']:not(.tablet),
+  [class*='tablet hidden'],
+  [class*='computer only']:not(.tablet),
+  [class*='large screen only']:not(.tablet),
+  [class*='widescreen only']:not(.tablet),
+  [class*='or lower hidden']:not(.mobile) {
     display: none !important;
   }
+}
 
+/* Small Monitor */
+.onSmallMonitor({
   .ui.container {
     --m-gutter: @emSize * 2;
     max-width: @computerWidthCSS !important;
@@ -185,15 +180,19 @@ body {
   }
 });
 
-/* Large Monitor */
-.onLargeMonitor({
+@media @smallMonitor {
   [class*='mobile only']:not(.computer),
   [class*='tablet only']:not(.computer),
-  [class*='computer only'],
+  [class*='computer hidden'],
+  [class*='large screen only']:not(.computer),
+  [class*='widescreen only']:not(.computer),
   [class*='or lower hidden']:not(.tablet):not(.mobile) {
     display: none !important;
   }
+}
 
+/* Large Monitor */
+.onLargeMonitor({
   .ui.container {
     --m-gutter: @emSize * 2.5;
     max-width: @largeMonitorWidthCSS !important;
@@ -218,6 +217,17 @@ body {
   }
 });
 
+@media @largeMonitor {
+  [class*='mobile only']:not(.large.screen),
+  [class*='tablet only']:not(.large.screen),
+  [class*='computer only']:not(.large.screen),
+  [class*='large screen hidden'],
+  [class*='widescreen only']:not(.large.screen),
+  [class*='or lower hidden']:not(.computer):not(.tablet):not(.mobile) {
+    display: none !important;
+  }
+}
+
 /* Narrow Monitor */
 .onNarrowMonitor({
   [class~="narrow_view"] [id="page-document"] > *,
@@ -239,6 +249,17 @@ body {
     margin-right: auto !important;
   }
 });
+
+@media @largeMonitor {
+  [class*='mobile only']:not(.widescreen),
+  [class*='tablet only']:not(.widescreen),
+  [class*='computer only']:not(.widescreen),
+  [class*='large screen only']:not(.widescreen),
+  [class*='widescreen hidden'],
+  [class*='or lower hidden']:not(.large.screen):not(.computer):not(.tablet):not(.mobile) {
+    display: none !important;
+  }
+}
 
 .half-width {
   &:not(.full-hd) {

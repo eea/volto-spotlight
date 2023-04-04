@@ -641,7 +641,7 @@
 }
 
 // Mobile
-.onMobile({
+@media @mobile {
   #search-box .advanced-search .ui.container {
     flex-direction: @tabletSearchBoxFullSearchFlexDirection;
     align-items: @tabletSearchBoxFullSearchAlignItems;
@@ -677,17 +677,10 @@
   .nav-description {
     font-size: @tabletNavDescriptionFontSize;
   }
-});
-
-// Large monitor
-.onLargeMonitor({
-  .eea.header .subsite-logo {
-    left: calc(100% + calc(@subsiteFlexGap / 2));
-  }
-});
+}
 
 // Mobile up
-.onMobileUp({
+@media @mobileUp {
   .top.bar .item {
     font-size: @tabletTopSectionItemFontSize;
   }
@@ -799,10 +792,10 @@
     max-height: @tabletPopUpHeight;
     padding: @tabletMegaMenuPadding;
   }
-});
+}
 
 // Tablet up
-.onTabletUp({
+@media @tabletUp {
   .eea.header .subsite-logo {
     position: absolute;
     top: @subsiteLogoTopPosition;
@@ -942,6 +935,13 @@
       text-decoration: underline;
     }
   }
-});
+}
+
+// Large monitor
+@media @largeMonitor {
+  .eea.header .subsite-logo {
+    left: calc(100% + calc(@subsiteFlexGap / 2));
+  }
+}
 
 .loadUIOverrides();
