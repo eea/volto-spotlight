@@ -1,0 +1,63 @@
+/*******************************
+        Import Directives
+*******************************/
+
+/*------------------
+       Theme
+-------------------*/
+
+@theme: @@element;
+
+@plugin "./plugins";
+
+@themesFolderEEA: '~eea-volto-themes';
+@themesFolderSpotlight: '~volto-spotlight-themes';
+
+/*--------------------
+   Site Variables
+---------------------*/
+
+/* Site theme site.variables */
+@import (optional) '@{themesFolderSpotlight}/@{site}/globals/site.variables';
+
+/* Site theme site.variables */
+@import (optional) '@{siteFolder}/globals/site.variables';
+
+/*-------------------
+ Component Variables
+---------------------*/
+
+/* Packaged Theme */
+@import (optional) '@{themesFolderEEA}/@{theme}/@{type}s/@{element}.variables';
+@import (optional) '@{themesFolderSpotlight}/@{theme}/@{type}s/@{element}.variables';
+
+/* Site Theme */
+@import (optional) '@{siteFolder}/@{type}s/@{element}.variables';
+
+/*******************************
+             Mix-ins
+*******************************/
+@import '@{themesFolderSpotlight}/spotlight/globals/mixins';
+
+/*------------------
+       Fonts
+-------------------*/
+
+.loadFonts() {
+  @import (css) '~@fontsource/roboto/latin-300.css';
+  @import (css) '~@fontsource/roboto/latin-400.css';
+  @import (css) '~@fontsource/roboto/latin-500.css';
+  @import (css) '~@fontsource/roboto/latin-700.css';
+  @import (css) '~@fontsource/roboto/latin-400-italic.css';
+  @import (css) '~@fontsource/roboto/latin-700-italic.css';
+}
+
+/*------------------
+     Overrides
+-------------------*/
+
+.loadUIOverrides() {
+  @import (optional) '@{themesFolderEEA}/@{theme}/@{type}s/@{element}.overrides';
+  @import (optional) '@{themesFolderSpotlight}/@{theme}/@{type}s/@{element}.overrides';
+  @import (optional) '@{siteFolder}/@{type}s/@{element}.overrides';
+}
