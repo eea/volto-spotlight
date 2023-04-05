@@ -9,7 +9,7 @@
 /* Minimum Gutter is used to determine  the maximum container width for a given device */
 
 @maxWidth: 100%;
-@scrollbarWidth: 16px;
+@transitionEffect: cubic-bezier(0.6, -0.28, 0.735, 0.045);
 
 /* Devices */
 @mobileMinimumGutter: var(--m-gutter, 1rem);
@@ -31,6 +31,16 @@
 @largeMonitorGutter: auto;
 @largeMonitorWidth: @largeMonitorBreakpoint;
 @largeMonitorWidthCSS: calc(var(--large-monitor-width, @largeMonitorWidth) - @largeMonitorMinimumGutter * 2);
+
+@narrowMonitorMinimumGutter: var(--m-gutter, @emSize * 2.5);
+@narrowMonitorGutter: auto;
+@narrowMonitorWidth: @narrowBreakpoint;
+@narrowMonitorWidthCSS: calc(var(--narrow-monitor-width, @narrowMonitorWidth) - @narrowMonitorMinimumGutter * 2);
+
+@wideMonitorMinimumGutter: var(--m-gutter, @emSize * 2.5);
+@wideMonitorGutter: auto;
+@wideMonitorWidth: @laptopMonitorBreakpoint;
+@wideMonitorWidthCSS: calc(var(--wide-monitor-width, @wideMonitorWidth) - @wideMonitorMinimumGutter * 2);
 
 /* Coupling (Add Negative Margin to container size) */
 @gridGutterWidth: 2rem;
@@ -61,6 +71,3 @@
 @textFontFamily: @pageFont;
 @textLineHeight: 1.5;
 @textSize: @large;
-
-/* Section */
-@editContainerGutter: 3rem;

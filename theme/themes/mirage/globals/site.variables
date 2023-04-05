@@ -280,21 +280,6 @@
 @desktopColumns  : 12;
 
 /*-------------------
-      Container
---------------------*/
-@minimumGutter: @emSize * 1;
-@narrowWidth: 900px + @minimumGutter * 2;
-@containerWidth: 1200px;
-@wideWidth: 1300px + @minimumGutter * 2;
-@fullHdWidth: 1920px;
-
-@narrowWidthBreakpoint  : @narrowWidth;
-@wideWidthBreakpoint    : @wideWidth;
-
-@narrowMonitor  : breakpoint(@narrowWidthBreakpoint, 0, @breakpointOffset, @extraRule);
-@wideMonitor    : breakpoint(@wideWidthBreakpoint, 0, @breakpointOffset, @extraRule);
-
-/*-------------------
   Pastanaga Toolbar
 --------------------*/
 @collapsedWidth: 20px;
@@ -322,6 +307,8 @@
      Breakpoints
 --------------------*/
 @breakpointOffset : 0;
+@minOffset        : 0;
+@maxOffset        : @scrollbarWidth;
 @extraRule        : '';
 
 @mobileBreakpoint            : 320px;
@@ -332,16 +319,24 @@
 @computerBreakpoint          : 992px;
 @smallMonitorBreakpoint      : 1024px; // introduced for the design system
 @largeMonitorBreakpoint      : 1200px;
-@laptopMonitorBreakpoint     : 1280px; // introduced for the design system
+@laptopMonitorBreakpoint     : 1300px; // introduced for the design system
 @siteBreakpoint              : 1400px; // introduced for the design system
 @widescreenMonitorBreakpoint : 1920px;
 
-@mobile           : breakpoint(0, @largestMobileScreen, @breakpointOffset, @extraRule);
-@mobileUp         : breakpoint(@tabletBreakpoint, 0, @breakpointOffset, @extraRule);
-@tablet           : breakpoint(@tabletBreakpoint, @largestTabletScreen, @breakpointOffset, @extraRule);
-@tabletUp         : breakpoint(@computerBreakpoint, 0, @breakpointOffset, @extraRule);
-@smallMonitor     : breakpoint(@computerBreakpoint, @largestSmallMonitor, @breakpointOffset, @extraRule);
-@largeMonitor     : breakpoint(@largeMonitorBreakpoint, 0, @breakpointOffset, @extraRule);
+@mobile           : breakpoint(0, @largestMobileScreen);
+@mobileUp         : breakpoint(@tabletBreakpoint, 0);
+@tablet           : breakpoint(@tabletBreakpoint, @largestTabletScreen);
+@tabletUp         : breakpoint(@computerBreakpoint, 0);
+@smallMonitor     : breakpoint(@computerBreakpoint, @largestSmallMonitor);
+@largeMonitor     : breakpoint(@largeMonitorBreakpoint, 0);
+@narrowMonitor    : breakpoint(@narrowBreakpoint, 0);
+@wideMonitor      : breakpoint(@laptopMonitorBreakpoint, 0);
+
+@innerTablet        : breakpoint(@tabletBreakpoint + @minOffset, @tabletBreakpoint + @maxOffset, 0, @extraRule);
+@innerSmallMonitor  : breakpoint(@computerBreakpoint + @minOffset, @computerBreakpoint + @maxOffset, 0, @extraRule);
+@innerLargeMonitor  : breakpoint(@largeMonitorBreakpoint + @minOffset, @largeMonitorBreakpoint + @maxOffset, 0, @extraRule);
+@innerNarrowMonitor : breakpoint(@narrowBreakpoint + @minOffset, @narrowBreakpoint + @maxOffset, @breakpointOffset, @extraRule);
+@innerWideMonitor   : breakpoint(@laptopMonitorBreakpoint + @minOffset, @laptopMonitorBreakpoint + @maxOffset, @breakpointOffset, @extraRule);
 
 
 /* Paddings for breakpoints */

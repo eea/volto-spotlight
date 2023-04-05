@@ -1,4 +1,6 @@
 @breakpointOffset: 0;
+@minOffset: 0;
+@maxOffset: 0;
 @extraRule: '';
 
 .media(@breakpointName, @rules) {
@@ -7,120 +9,77 @@
   @withoutSidebar: ~":not(.has-sidebar):not(.has-sidebar-collapsed)"; 
   body {
     &@{withoutToolbar}@{withoutSidebar} {
+      @maxOffset: @scrollbarWidth;
+      @extraRule: ~"(min-width: @{tabletBreakpoint})";
       @media @breakpointRule { @rules(); }
     }
 
     &@{withoutSidebar} {
       &.has-toolbar {
-        @breakpointOffset: @toolbarWidth;
+        @maxOffset: @toolbarWidth + @scrollbarWidth;
         @extraRule: ~"(min-width: @{tabletBreakpoint})";
         @media @breakpointRule { @rules(); }
       }
 
       &.has-toolbar-collapsed {
-        @breakpointOffset: @collapsedWidth;
+        @maxOffset: @collapsedWidth + @scrollbarWidth;
         @extraRule: ~"(min-width: @{tabletBreakpoint})";
-        @media @breakpointRule { @rules(); }
-      }
-
-      &.has-toolbar {
-        @breakpointOffset: 0;
-        @extraRule: ~"(max-width: @{largestMobileScreen})";
-        @media @breakpointRule { @rules(); }
-      }
-
-      &.has-toolbar-collapsed {
-        @breakpointOffset: 0;
-        @extraRule: ~"(max-width: @{largestMobileScreen})";
         @media @breakpointRule { @rules(); }
       }
     }
 
     &@{withoutToolbar} {
       &.has-sidebar {
-        @breakpointOffset: @sidebarWidth;
+        @maxOffset: @sidebarWidth + @scrollbarWidth;
         @extraRule: ~"(min-width: @{tabletBreakpoint})";
         @media @breakpointRule { @rules(); }
       }
 
       &.has-sidebar-collapsed {
-        @breakpointOffset: @collapsedWidth;
+        @maxOffset: @collapsedWidth + @scrollbarWidth;
         @extraRule: ~"(min-width: @{tabletBreakpoint})";
         @media @breakpointRule { @rules(); }
       }
     }
 
     &.has-toolbar.has-sidebar {
-      @breakpointOffset: @toolbarWidth + @sidebarWidth;
+      @maxOffset: @toolbarWidth + @sidebarWidth + @scrollbarWidth;
       @extraRule: ~"(min-width: @{tabletBreakpoint})";
       @media @breakpointRule { @rules(); }
     }
 
     &.has-toolbar.has-sidebar-collapsed {
-      @breakpointOffset: @toolbarWidth + @collapsedWidth;
+      @maxOffset: @toolbarWidth + @collapsedWidth + @scrollbarWidth;
       @extraRule: ~"(min-width: @{tabletBreakpoint})";
       @media @breakpointRule { @rules(); }
     }
 
     &.has-toolbar-collapsed.has-sidebar {
-      @breakpointOffset: @collapsedWidth + @sidebarWidth;
+      @maxOffset: @collapsedWidth + @sidebarWidth + @scrollbarWidth;
       @extraRule: ~"(min-width: @{tabletBreakpoint})";
       @media @breakpointRule { @rules(); }
     }
 
     &.has-toolbar-collapsed.has-sidebar-collapsed {
-      @breakpointOffset: 2 * @collapsedWidth;
+      @maxOffset: 2 * @collapsedWidth + @scrollbarWidth;
       @extraRule: ~"(min-width: @{tabletBreakpoint})";
-      @media @breakpointRule { @rules(); }
-    }
-
-    &.has-toolbar.has-sidebar {
-      @breakpointOffset: @sidebarWidth;
-      @extraRule: ~"(max-width: @{largestMobileScreen})";
-      @media @breakpointRule { @rules(); }
-    }
-
-    &.has-toolbar.has-sidebar-collapsed {
-      @breakpointOffset: @collapsedWidth;
-      @extraRule: ~"(max-width: @{largestMobileScreen})";
-      @media @breakpointRule { @rules(); }
-    }
-
-    &.has-toolbar-collapsed.has-sidebar {
-      @breakpointOffset: @sidebarWidth;
-      @extraRule: ~"(max-width: @{largestMobileScreen})";
-      @media @breakpointRule { @rules(); }
-    }
-
-    &.has-toolbar-collapsed.has-sidebar-collapsed {
-      @breakpointOffset: @collapsedWidth;
-      @extraRule: ~"(max-width: @{largestMobileScreen})";
       @media @breakpointRule { @rules(); }
     }
   }
 }
 
-.onMobile(@rules) {
-  .media(mobile, @rules);
+.innerTablet(@rules) {
+  .media(innerTablet, @rules);
 }
-.onTablet(@rules) {
-  .media(tablet, @rules);
+.innerSmallMonitor(@rules) {
+  .media(innerSmallMonitor, @rules);
 }
-.onSmallMonitor(@rules) {
-  .media(smallMonitor, @rules);
+.innerLargeMonitor(@rules) {
+  .media(innerLargeMonitor, @rules);
 }
-.onLargeMonitor(@rules) {
-  .media(largeMonitor, @rules);
+.innerNarrowMonitor(@rules) {
+  .media(innerNarrowMonitor, @rules);
 }
-.onMobileUp(@rules) {
-  .media(mobileUp, @rules);
-}
-.onTabletUp(@rules) {
-  .media(tabletUp, @rules);
-}
-.onNarrowMonitor(@rules) {
-  .media(narrowMonitor, @rules);
-}
-.onWideMonitor(@rules) {
-  .media(wideMonitor, @rules);
+.innerWideMonitor(@rules) {
+  .media(innerWideMonitor, @rules);
 }
