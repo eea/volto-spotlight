@@ -1,6 +1,10 @@
 pipeline {
   agent any
 
+  triggers {
+        issueCommentTrigger('[^>]*@eea-jenkins.*build.*')
+  }
+
   environment {
         GIT_NAME = "volto-spotlight"
         NAMESPACE = "@eeacms"
@@ -32,6 +36,7 @@ pipeline {
         allOf {
           environment name: 'CHANGE_ID', value: ''
           not { changelog '.*^Automated release [0-9\\.]+$' }
+          not { changelog '.*^Autobuild of docusaurus docs$' }
           not { branch 'master' }
         }
       }
@@ -40,19 +45,19 @@ pipeline {
 
           "ES lint": {
             node(label: 'docker') {
-              sh '''docker run -i --rm --name="$BUILD_TAG-eslint" -e NAMESPACE="$NAMESPACE" -e GIT_NAME=$GIT_NAME -e GIT_BRANCH="$BRANCH_NAME" -e GIT_CHANGE_ID="$CHANGE_ID" -e VOLTO=$VOLTO plone/volto-addon-ci eslint'''
+              sh '''docker run -i --rm --name="$BUILD_TAG-eslint" -e NAMESPACE="$NAMESPACE" -e GIT_NAME=$GIT_NAME -e GIT_BRANCH="$BRANCH_NAME" -e GIT_CHANGE_ID="$CHANGE_ID" -e VOLTO="$VOLTO" plone/volto-addon-ci eslint'''
             }
           },
 
           "Style lint": {
             node(label: 'docker') {
-              sh '''docker run -i --rm --name="$BUILD_TAG-stylelint" -e NAMESPACE="$NAMESPACE" -e GIT_NAME=$GIT_NAME -e GIT_BRANCH="$BRANCH_NAME" -e GIT_CHANGE_ID="$CHANGE_ID" -e VOLTO=$VOLTO plone/volto-addon-ci stylelint'''
+              sh '''docker run -i --rm --name="$BUILD_TAG-stylelint" -e NAMESPACE="$NAMESPACE" -e GIT_NAME=$GIT_NAME -e GIT_BRANCH="$BRANCH_NAME" -e GIT_CHANGE_ID="$CHANGE_ID" -e VOLTO="$VOLTO" plone/volto-addon-ci stylelint'''
             }
           },
 
           "Prettier": {
             node(label: 'docker') {
-              sh '''docker run -i --rm --name="$BUILD_TAG-prettier" -e NAMESPACE="$NAMESPACE" -e GIT_NAME=$GIT_NAME -e GIT_BRANCH="$BRANCH_NAME" -e GIT_CHANGE_ID="$CHANGE_ID" -e VOLTO=$VOLTO plone/volto-addon-ci prettier'''
+              sh '''docker run -i --rm --name="$BUILD_TAG-prettier" -e NAMESPACE="$NAMESPACE" -e GIT_NAME=$GIT_NAME -e GIT_BRANCH="$BRANCH_NAME" -e GIT_CHANGE_ID="$CHANGE_ID" -e VOLTO="$VOLTO" plone/volto-addon-ci prettier'''
             }
           }
         )
@@ -64,7 +69,10 @@ pipeline {
         allOf {
           environment name: 'CHANGE_ID', value: ''
           anyOf {
-           not { changelog '.*^Automated release [0-9\\.]+$' }
+            allOf {
+              not { changelog '.*^Automated release [0-9\\.]+$' }
+              not { changelog '.*^Autobuild of docusaurus docs$'}
+            }
            branch 'master'
           }
         }
@@ -77,7 +85,7 @@ pipeline {
               script {
                 try {
                   sh '''docker pull plone/volto-addon-ci'''
-                  sh '''docker run -i --name="$BUILD_TAG-volto" -e NAMESPACE="$NAMESPACE" -e GIT_NAME=$GIT_NAME -e GIT_BRANCH="$BRANCH_NAME" -e GIT_CHANGE_ID="$CHANGE_ID" -e VOLTO=$VOLTO plone/volto-addon-ci'''
+                  sh '''docker run -i --name="$BUILD_TAG-volto" -e NAMESPACE="$NAMESPACE" -e GIT_NAME=$GIT_NAME -e GIT_BRANCH="$BRANCH_NAME" -e GIT_CHANGE_ID="$CHANGE_ID" -e VOLTO="$VOLTO" plone/volto-addon-ci'''
                   sh '''rm -rf xunit-reports'''
                   sh '''mkdir -p xunit-reports'''
                   sh '''docker cp $BUILD_TAG-volto:/opt/frontend/my-volto-project/coverage xunit-reports/'''
@@ -112,7 +120,10 @@ pipeline {
         allOf {
           environment name: 'CHANGE_ID', value: ''
           anyOf {
-           not { changelog '.*^Automated release [0-9\\.]+$' }
+            allOf {
+              not { changelog '.*^Automated release [0-9\\.]+$' }
+              not { changelog '.*^Autobuild of docusaurus docs$' }
+            }
            branch 'master'
           }
         }
@@ -125,7 +136,7 @@ pipeline {
               script {
                 try {
                   sh '''docker pull eeacms/plone-backend; docker run --rm -d --name="$BUILD_TAG-plone" -e SITE="Plone" -e PROFILES="eea.kitkat:testing" eeacms/plone-backend'''
-                  sh '''docker pull plone/volto-addon-ci; docker run -i --name="$BUILD_TAG-cypress" --link $BUILD_TAG-plone:plone -e NAMESPACE="$NAMESPACE" -e GIT_NAME=$GIT_NAME -e GIT_BRANCH="$BRANCH_NAME" -e GIT_CHANGE_ID="$CHANGE_ID" -e DEPENDENCIES="$DEPENDENCIES" -e NODE_ENV=development -e VOLTO=$VOLTO plone/volto-addon-ci cypress'''
+                  sh '''docker pull plone/volto-addon-ci; docker run -i --name="$BUILD_TAG-cypress" --link $BUILD_TAG-plone:plone -e NAMESPACE="$NAMESPACE" -e GIT_NAME=$GIT_NAME -e GIT_BRANCH="$BRANCH_NAME" -e GIT_CHANGE_ID="$CHANGE_ID" -e DEPENDENCIES="$DEPENDENCIES" -e NODE_ENV=development -e VOLTO="$VOLTO" plone/volto-addon-ci cypress'''
                 } finally {
                   try {
                     sh '''rm -rf cypress-reports cypress-results cypress-coverage'''
@@ -143,7 +154,7 @@ pipeline {
                              reportTitles: 'Integration Tests Code Coverage'])
                     }
                     sh '''touch empty_file; for ok_test in $(grep -E 'file=.*failures="0"' $(grep 'testsuites .*failures="0"' $(find cypress-results -name *.xml) empty_file | awk -F: '{print $1}') empty_file | sed 's/.* file="\\(.*\\)" time.*/\\1/' | sed 's#^cypress/integration/##g' | sed 's#^../../../node_modules/@eeacms/##g'); do rm -f cypress-reports/videos/$ok_test.mp4; rm -f cypress-reports/$ok_test.mp4; done'''
-                    archiveArtifacts artifacts: 'cypress-reports/**/*.mp4', fingerprint: true, allowEmptyArchive: true
+                        archiveArtifacts artifacts: 'cypress-reports/**/*.mp4', fingerprint: true, allowEmptyArchive: true
                     stash name: "cypress-coverage", includes: "cypress-coverage/**", allowEmpty: true
                   }
                   finally {
@@ -173,6 +184,7 @@ pipeline {
             allOf {
               branch 'develop'
               not { changelog '.*^Automated release [0-9\\.]+$' }
+              not { changelog '.*^Autobuild of docusaurus docs$' }
             }
           }
         }
@@ -194,6 +206,101 @@ pipeline {
         }
       }
     }
+
+
+   stage('Pull Request COMMENT') {
+      when {
+        not { environment name: 'CHANGE_ID', value: '' }
+        not { environment name: 'GITHUB_COMMENT', value: '' }
+
+      }
+
+
+     parallel {
+       stage('Docusaurus') {
+           when {
+            expression {
+              env.GITHUB_COMMENT.contains("@eea-jenkins build all") || env.GITHUB_COMMENT.contains("@eea-jenkins build doc")
+              }
+           }
+
+
+          steps {
+            node(label: 'docker') {
+
+              script {
+                  checkout scm
+                  env.NODEJS_HOME = "${tool 'NodeJS'}"
+                  env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
+
+                  sh '''sed -i "s#url:.*#url: 'https://ci.eionet.europa.eu/',#" website/docusaurus.config.js'''
+                  sh '''BASEURL="$(echo $BUILD_URL | sed 's#https://ci.eionet.europa.eu##')${GIT_NAME}/"; sed -i "s#baseUrl:.*#baseUrl: '$BASEURL',#" website/docusaurus.config.js'''
+                  def RETURN_STATUS = sh(script: '''cd website; yarn;yarn build;cd ..''', returnStatus: true)
+                  if ( RETURN_STATUS == 0 ) {
+                         publishHTML (target : [allowMissing: false,
+                                   alwaysLinkToLastBuild: true,
+                                   keepAll: true,
+                                   reportDir: 'docs',
+                                   reportFiles: 'docs/intro/index.html',
+                                   reportName: "${GIT_NAME}",
+                                   reportTitles: 'Docusaurus'])
+
+                         pullRequest.comment("### :heavy_check_mark: Docusaurus:\n${BUILD_URL}${GIT_NAME}/\n\n:rocket: @${GITHUB_COMMENT_AUTHOR}")
+                    }
+                    else {
+                          pullRequest.comment("### :x: Docusaurus build FAILED\nCheck ${BUILD_URL} for details\n\n:fire: @${GITHUB_COMMENT_AUTHOR}")
+                          currentBuild.result = 'FAILURE'
+                          error("Docusaurus build FAILED")
+                    }
+
+              }
+             }
+           }
+
+
+          }
+
+
+       stage('Storybook') {
+           when {
+            expression {
+              env.GITHUB_COMMENT.contains("@eea-jenkins build all") || env.GITHUB_COMMENT.contains("@eea-jenkins build story")
+              }
+           }
+
+          steps {
+            node(label: 'docker') {
+              script {
+                  env.NODEJS_HOME = "${tool 'NodeJS'}"
+                  env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
+
+                  sh '''rm -rf volto-kitkat-frontend'''
+
+                  sh '''git clone --branch develop https://github.com/eea/volto-kitkat-frontend.git'''
+
+                  withCredentials([string(credentialsId: 'volto-kitkat-frontend-chromatica', variable: 'CHROMATICA_TOKEN')]) {
+                    def RETURN_STATUS = sh(script: '''cd volto-kitkat-frontend; npm install -g mrs-developer chromatic; yarn cache clean; make develop; cd src/addons/$GIT_NAME; git fetch origin pull/${CHANGE_ID}/head:PR-${CHANGE_ID}; git checkout PR-${CHANGE_ID}; cd ../../..; yarn install; yarn build-storybook; npx chromatic --no-interactive --force-rebuild  --project-token=$CHROMATICA_TOKEN | tee chromatic.log; cd ..''', returnStatus: true)
+                    if ( RETURN_STATUS == 0 ) {
+                      def STORY_URL = sh(script: '''grep "View your Storybook" volto-kitkat-frontend/chromatic.log | sed "s/.*https/https/" ''', returnStdout: true).trim()
+                      pullRequest.comment("### :heavy_check_mark: Storybook:\n${STORY_URL}\n\n:rocket: @${GITHUB_COMMENT_AUTHOR}")
+                    }
+                    else {
+                       pullRequest.comment("### :x: Storybook build FAILED\nCheck ${BUILD_URL} for details\n\n:fire: @${GITHUB_COMMENT_AUTHOR}")
+                       currentBuild.result = 'FAILURE'
+                       error("Storybook build FAILED")
+                    }
+                   }
+                   sh '''rm -rf volto-kitkat-frontend'''
+              }
+             }
+          }
+       }
+
+
+      }
+    }
+
+
 
     stage('Pull Request') {
       when {
