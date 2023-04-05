@@ -1,0 +1,69 @@
+@type: 'extra';
+@element: 'contentBox';
+
+@import (multiple) '../../theme.config';
+
+/*-------------------
+      CONTENT BOX
+--------------------*/
+.content-box::before {
+  .full-width();
+  position: absolute;
+  content: '';
+  display: block;
+  background-color: inherit;
+  height: 100%;
+}
+
+.content-box {
+  background-color: @contentBoxBackgroundColor;
+  color: @contentBoxColorInverted;
+  margin-bottom: @mediumGap;
+  position: relative;
+
+  .content-box-inner {
+    padding-top: @contentBoxContainerMarginTop;
+    padding-bottom: @contentBoxContainerMarginBottom;
+    position: relative;
+    z-index: @contentBoxContainerZIndex;
+  }
+
+  &.primary {
+    background-color: @contentBoxBackgroundColorPrimary;
+    color: @contentBoxColor;
+  }
+  &.secondary {
+    background-color: @contentBoxBackgroundColorSecondary;
+    color: @contentBoxColor;
+  }
+
+  &.tertiary {
+    background-color: @contentBoxBackgroundColorTertiary;
+    color: @contentBoxColor;
+  }
+
+  .ui.grid.column-grid {
+    margin-bottom: 0;
+  }
+}
+
+.content-box[class*="ary"] {
+  --bg-color: transparent;
+  --border-color-secondary: @contentBoxColor;
+  --text-color: @contentBoxColor;
+  --text-color-primary: @contentBoxColor;
+  --text-color-secondary: @contentBoxColor;
+  --text-color-tertiary: @contentBoxColor;
+  --text-color-hover: @backgroundColorSupplementary;
+}
+// inherit link
+.content-box[class*="ary"] a:not(.ui, .item, .header-link) {
+  color: inherit;
+  text-decoration: underline;
+}
+
+// inherit color for slate links within context boxes
+.content-box .slate-editor-link {
+  color: inherit;
+  text-decoration: underline;
+}

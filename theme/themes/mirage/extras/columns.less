@@ -1,0 +1,25 @@
+@type: 'extra';
+@element: 'columns';
+
+@import (multiple) '../../theme.config';
+
+.block-editor-columnsBlock {
+  .column-grid > .column > .blocks-form {
+    margin: 0 1rem;
+
+    > fieldset > div > div {
+
+      &:first-child {
+        margin-top: 1.5rem !important;
+      }
+
+      margin-bottom: 1.5rem !important;
+
+      > [class*="block-editor"] {
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+}
+
+.loadUIOverrides();

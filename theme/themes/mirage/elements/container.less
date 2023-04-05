@@ -1,0 +1,333 @@
+/*!
+ * # Semantic UI - Container
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'element';
+@element : 'container';
+
+@import (multiple) '../../theme.config';
+
+/*******************************
+            Container
+*******************************/
+
+/* All Sizes */
+.ui.container {
+  display: block;
+  max-width: @maxWidth;
+  transition: width 0.3s @transitionEffect,
+    margin-left 0.3s @transitionEffect,
+    margin-right 0.3s @transitionEffect;
+}
+
+#page-document.ui.container,
+#page-edit .ui.container {
+  width: 100%;
+}
+
+/* Mobile */
+@media @mobile {
+  .ui.container,
+  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
+  [class~="view-defaultview"] [id="page-document"] > *,
+  [class~="view-viewview"] [id="page-document"] > *,
+  [class~="narrow_view"] [id="page-document"] > *,
+  [class~="wide_view"] [id="page-document"] > *,
+  #main .container_width,
+  #main .narrow_width,
+  #main .wide_width,
+  #main .has--size--container_width,
+  #main .has--size--narrow_width,
+  #main .has--size--wide_width {
+    width: @mobileWidthCSS;
+    margin-left: @mobileGutter;
+    margin-right: @mobileGutter;
+  }
+  .ui.grid.container {
+    width: @mobileGridWidth !important;
+  }
+  .ui.relaxed.grid.container {
+    width: @mobileRelaxedGridWidth !important;
+  }
+  .ui.very.relaxed.grid.container {
+    width: @mobileVeryRelaxedGridWidth !important;
+  }
+}
+
+/* Tablet */
+@media @tablet {
+  .ui.container,
+  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
+  [class~="view-defaultview"] [id="page-document"] > *,
+  [class~="view-viewview"] [id="page-document"] > *,
+  [class~="narrow_view"] [id="page-document"] > *,
+  [class~="wide_view"] [id="page-document"] > *,
+  #main .container_width,
+  #main .narrow_width,
+  #main .wide_width,
+  #main .has--size--container_width,
+  #main .has--size--narrow_width,
+  #main .has--size--wide_width {
+    width: @tabletWidthCSS;
+    margin-left: @tabletGutter;
+    margin-right: @tabletGutter;
+  }
+  .ui.grid.container {
+    width: @tabletGridWidth !important;
+  }
+  .ui.relaxed.grid.container {
+    width: @tabletRelaxedGridWidth !important;
+  }
+  .ui.very.relaxed.grid.container {
+    width: @tabletVeryRelaxedGridWidth !important;
+  }
+}
+
+.innerTablet({
+  .ui.container,
+  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
+  &[class~="view-defaultview"] [id="page-document"] > *,
+  &[class~="view-viewview"] [id="page-document"] > *,
+  &[class~="narrow_view"] [id="page-document"] > *,
+  &[class~="wide_view"] [id="page-document"] > *,
+  #main .container_width,
+  #main .narrow_width,
+  #main .wide_width,
+  #main .has--size--container_width,
+  #main .has--size--narrow_width,
+  #main .has--size--wide_width {
+    --tablet-width: 100%;
+  }
+});
+
+/* Small Monitor */
+@media @smallMonitor {
+  .ui.container,
+  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
+  [class~="view-defaultview"] [id="page-document"] > *,
+  [class~="view-viewview"] [id="page-document"] > *,
+  [class~="narrow_view"] [id="page-document"] > *,
+  [class~="wide_view"] [id="page-document"] > *,
+  #main .container_width,
+  #main .narrow_width,
+  #main .wide_width,
+  #main .has--size--container_width,
+  #main .has--size--narrow_width,
+  #main .has--size--wide_width {
+    width: @computerWidthCSS;
+    margin-left: @computerGutter;
+    margin-right: @computerGutter;
+  }
+  .ui.grid.container {
+    width: @computerGridWidth !important;
+  }
+  .ui.relaxed.grid.container {
+    width: @computerRelaxedGridWidth !important;
+  }
+  .ui.very.relaxed.grid.container {
+    width: @computerVeryRelaxedGridWidth !important;
+  }
+}
+
+.innerSmallMonitor({
+  .ui.container,
+  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
+  &[class~="view-defaultview"] [id="page-document"] > *,
+  &[class~="view-viewview"] [id="page-document"] > *,
+  &[class~="narrow_view"] [id="page-document"] > *,
+  &[class~="wide_view"] [id="page-document"] > *,
+  #main .container_width,
+  #main .narrow_width,
+  #main .wide_width,
+  #main .has--size--container_width,
+  #main .has--size--narrow_width,
+  #main .has--size--wide_width {
+    --computer-width: 100%;
+  }
+});
+
+/* Large Monitor */
+@media @largeMonitor {
+  .ui.container,
+  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
+  [class~="view-defaultview"] [id="page-document"] > *,
+  [class~="view-viewview"] [id="page-document"] > *,
+  [class~="narrow_view"] [id="page-document"] > *,
+  [class~="wide_view"] [id="page-document"] > *,
+  #main .container_width,
+  #main .narrow_width,
+  #main .wide_width,
+  #main .has--size--container_width,
+  #main .has--size--narrow_width,
+  #main .has--size--wide_width {
+    width: @largeMonitorWidthCSS;
+    margin-left: @largeMonitorGutter;
+    margin-right: @largeMonitorGutter;
+  }
+  .ui.grid.container {
+    width: @largeMonitorGridWidth !important;
+  }
+  .ui.relaxed.grid.container {
+    width: @largeMonitorRelaxedGridWidth !important;
+  }
+  .ui.very.relaxed.grid.container {
+    width: @largeMonitorVeryRelaxedGridWidth !important;
+  }
+}
+
+.innerLargeMonitor({
+  .ui.container,
+  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
+  &[class~="view-defaultview"] [id="page-document"] > *,
+  &[class~="view-viewview"] [id="page-document"] > *,
+  &[class~="narrow_view"] [id="page-document"] > *,
+  &[class~="wide_view"] [id="page-document"] > *,
+  #main .container_width,
+  #main .narrow_width,
+  #main .wide_width,
+  #main .has--size--container_width,
+  #main .has--size--narrow_width,
+  #main .has--size--wide_width {
+    --large-monitor-width: 100%;
+  }
+});
+
+/* Narrow Monitor */
+@media @narrowMonitor {
+  .ui.container.narrow_width,
+  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"].has--size--narrow_width,
+  [class~="narrow_view"] [id="page-document"] > *,
+  #main .narrow_width,
+  #main .has--size--narrow_width {
+    width: @narrowMonitorWidthCSS;
+    margin-left: @narrowMonitorGutter;
+    margin-right: @narrowMonitorGutter;
+  }
+}
+
+.innerNarrowMonitor({
+  .ui.container.narrow_width,
+  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"].has--size--narrow_width,
+  &[class~="narrow_view"] [id="page-document"] > *,
+  #main .narrow_width,
+  #main .has--size--narrow_width {
+    --narrow-monitor-width: 100%;
+  }
+});
+
+/* Wide Monitor */
+@media @wideMonitor {
+  .ui.container.wide_width,
+  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"].has--size--wide_width,
+  [class~="wide_view"] [id="page-document"] > *,
+  #main .wide_width,
+  #main .has--size--wide_width {
+    width: @wideMonitorWidthCSS;
+    margin-left: @wideMonitorGutter;
+    margin-right: @wideMonitorGutter;
+  }
+}
+
+.innerWideMonitor({
+  .ui.container.wide_width,
+  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"].has--size--wide_width,
+  &[class~="wide_view"] [id="page-document"] > *,
+  #main .wide_width,
+  #main .has--size--wide_width {
+    --wide-monitor-width: 100%;
+  }
+});
+
+/*******************************
+             Types
+*******************************/
+
+
+/* Text Container */
+.ui.text.container {
+  font-family: @textFontFamily;
+  max-width: @textWidth !important;
+  line-height: @textLineHeight;
+}
+
+.ui.text.container {
+  font-size: @textSize;
+}
+
+/* Fluid */
+.ui.fluid.container {
+  width: 100%;
+}
+
+/* Full width */
+body:not(.section-add):not(.section-edit) {
+  .has--size--full,
+  .full-width {
+    .full-width();
+  }
+}
+
+/*******************************
+        Edit / Add section
+*******************************/
+
+.section-add,
+.section-edit {
+  #main {
+    width: calc(100% - @toolbarWidthCSS - @sidebarWidthCSS);
+  }
+
+  [class*="block-editor"] {
+    position: relative;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .block:last-child {
+    margin-bottom: 0;
+  }
+
+  .has--size--full,
+  .full-width {
+    .full-width-edit();
+  }
+
+  .drag.handle.wrapper {
+    margin-left: -27px !important;
+  }
+  
+  .block .delete-button {
+    margin-right: -27px !important;
+  }
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+.ui[class*="left aligned"].container {
+  text-align: left;
+}
+.ui[class*="center aligned"].container {
+  text-align: center;
+}
+.ui[class*="right aligned"].container {
+  text-align: right;
+}
+.ui.justified.container {
+  text-align: justify;
+  hyphens: auto;
+}
+
+
+.loadUIOverrides();

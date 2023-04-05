@@ -1,0 +1,58 @@
+// /*******************************
+//          Theme Overrides
+// *******************************/
+
+@media @mobile {
+  [class*='mobile hidden'],
+  [class*='tablet only']:not(.mobile),
+  [class*='computer only']:not(.mobile),
+  [class*='large screen only']:not(.mobile),
+  [class*='widescreen only']:not(.mobile),
+  [class*='or lower hidden'] {
+    display: none !important;
+  }
+}
+
+@media @tablet {
+  [class*='mobile only']:not(.tablet),
+  [class*='tablet hidden'],
+  [class*='computer only']:not(.tablet),
+  [class*='large screen only']:not(.tablet),
+  [class*='widescreen only']:not(.tablet),
+  [class*='or lower hidden']:not(.mobile) {
+    display: none !important;
+  }
+}
+
+@media @smallMonitor {
+  [class*='mobile only']:not(.computer),
+  [class*='tablet only']:not(.computer),
+  [class*='computer hidden'],
+  [class*='large screen only']:not(.computer),
+  [class*='widescreen only']:not(.computer),
+  [class*='or lower hidden']:not(.tablet):not(.mobile) {
+    display: none !important;
+  }
+}
+
+@media @largeMonitor {
+  [class*='mobile only']:not(.large.screen),
+  [class*='tablet only']:not(.large.screen),
+  [class*='computer only']:not(.large.screen),
+  [class*='large screen hidden'],
+  [class*='widescreen only']:not(.large.screen),
+  [class*='or lower hidden']:not(.computer):not(.tablet):not(.mobile) {
+    display: none !important;
+  }
+}
+
+@media @wideMonitor {
+  [class*='mobile only']:not(.widescreen),
+  [class*='tablet only']:not(.widescreen),
+  [class*='computer only']:not(.widescreen),
+  [class*='large screen only']:not(.widescreen),
+  [class*='widescreen hidden'],
+  [class*='or lower hidden']:not(.large.screen):not(.computer):not(.tablet):not(.mobile) {
+    display: none !important;
+  }
+}

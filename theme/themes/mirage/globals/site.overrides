@@ -1,0 +1,40 @@
+/*******************************
+        Global Overrides
+*******************************/
+
+@import '@eeacms/volto-eea-design-system/../theme/themes/eea/globals/utilities';
+
+body {
+  --toolbar-width: 0px;
+  --sidebar-width: 0px;
+
+  &.has-toolbar {
+    --toolbar-width: @toolbarWidth;
+  }
+
+  &.has-toolbar-collapsed {
+    --toolbar-width: @collapsedWidth;
+  }
+
+  &.has-sidebar {
+    --sidebar-width: @sidebarWidth;
+  }
+
+  &.has-sidebar-collapsed {
+    --sidebar-width: @collapsedWidth;
+  }
+
+  @media @mobile {
+    &.has-toolbar,
+    &.has-toolbar-collapsed {
+      --toolbar-width: 0px;
+    }
+  }
+}
+
+.color-fg-default { color: @primaryColor !important; }
+.color-bg-default { background-color: @primaryColor !important; }
+
+video {
+  display: block;
+}
