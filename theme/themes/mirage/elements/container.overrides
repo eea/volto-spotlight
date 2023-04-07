@@ -57,23 +57,23 @@
   }
 }
 
+@{edit} {
+  &.in-cypress {
+    [class*="block-editor"] {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+    
+    #main {
+      width: calc(100% - @toolbarWidthCSS - @sidebarWidthCSS);
+    }
 
-body.section-edit.in-cypress,
-body.section-add.in-cypress {
-  [class*="block-editor"] {
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
-  
-  #main {
-    width: calc(100% - @toolbarWidthCSS - @sidebarWidthCSS);
-  }
-
-  .drag.handle.wrapper {
-    margin-left: -27px !important;
-  }
-  
-  .block .delete-button {
-    margin-right: -27px !important;
+    .drag.handle.wrapper {
+      margin-left: -27px !important;
+    }
+    
+    .block .delete-button {
+      margin-right: -27px !important;
+    }
   }
 }
