@@ -15,52 +15,52 @@
 @mobileMinimumGutter: var(--m-gutter, 1rem);
 @mobileGutter: auto;
 @mobileWidth: 100%;
-@mobileWidthCSS: calc(var(--mobile-width, @mobileWidth) - @mobileMinimumGutter * 2);
+@mobileWidthCSS: calc(var(--mobile-width, @mobileWidth) - @mobileMinimumGutter * 2 - @editGutter * 2);
 
 @tabletMinimumGutter: var(--m-gutter, @emSize * 1.375);
 @tabletGutter: auto;
 @tabletWidth: @tabletBreakpoint;
-@tabletWidthCSS: calc(var(--tablet-width, @tabletWidth) - @tabletMinimumGutter * 2);
+@tabletWidthCSS: calc(var(--tablet-width, @tabletWidth) - @tabletMinimumGutter * 2 - @editGutter * 2);
 
 @computerMinimumGutter: var(--m-gutter, @emSize * 2);
 @computerGutter: auto;
 @computerWidth: @computerBreakpoint;
-@computerWidthCSS: calc(var(--computer-width, @computerWidth) - @computerMinimumGutter * 2);
+@computerWidthCSS: calc(var(--computer-width, @computerWidth) - @computerMinimumGutter * 2 - @editGutter * 2);
 
 @largeMonitorMinimumGutter: var(--m-gutter, @emSize * 2.5);
 @largeMonitorGutter: auto;
 @largeMonitorWidth: @largeMonitorBreakpoint;
-@largeMonitorWidthCSS: calc(var(--large-monitor-width, @largeMonitorWidth) - @largeMonitorMinimumGutter * 2);
+@largeMonitorWidthCSS: calc(var(--large-monitor-width, @largeMonitorWidth) - @largeMonitorMinimumGutter * 2 - @editGutter * 2);
 
 @narrowMonitorMinimumGutter: var(--m-gutter, @emSize * 2.5);
 @narrowMonitorGutter: auto;
 @narrowMonitorWidth: @narrowBreakpoint;
-@narrowMonitorWidthCSS: calc(var(--narrow-monitor-width, @narrowMonitorWidth) - @narrowMonitorMinimumGutter * 2);
+@narrowMonitorWidthCSS: calc(var(--narrow-monitor-width, @narrowMonitorWidth) - @narrowMonitorMinimumGutter * 2 - @editGutter * 2);
 
 @wideMonitorMinimumGutter: var(--m-gutter, @emSize * 2.5);
 @wideMonitorGutter: auto;
 @wideMonitorWidth: @laptopMonitorBreakpoint;
-@wideMonitorWidthCSS: calc(var(--wide-monitor-width, @wideMonitorWidth) - @wideMonitorMinimumGutter * 2);
+@wideMonitorWidthCSS: calc(var(--wide-monitor-width, @wideMonitorWidth) - @wideMonitorMinimumGutter * 2 - @editGutter * 2);
 
 /* Coupling (Add Negative Margin to container size) */
-@gridGutterWidth: 2rem;
+@gridGutterWidth: 1.25rem;
 @relaxedGridGutterWidth: 3rem;
 @veryRelaxedGridGutterWidth: 5rem;
 
-@mobileGridWidth: @mobileWidth;
-@tabletGridWidth: ~"calc("@tabletWidth~" + "@gridGutterWidth~")";
-@computerGridWidth: ~"calc("@computerWidth~" + "@gridGutterWidth~")";
-@largeMonitorGridWidth: ~"calc("@largeMonitorWidth~" + "@gridGutterWidth~")";
+@mobileGridWidth: calc(var(--mobile-width, @mobileWidth) + @gridGutterWidth - @mobileMinimumGutter * 2 - @editGutter * 2);
+@tabletGridWidth: calc(var(--tablet-width, @tabletWidth) + @gridGutterWidth - @tabletMinimumGutter * 2 - @editGutter * 2);
+@computerGridWidth: calc(var(--computer-width, @computerWidth) + @gridGutterWidth - @computerMinimumGutter * 2 - @editGutter * 2);
+@largeMonitorGridWidth: calc(var(--large-monitor-width, @largeMonitorWidth) + @gridGutterWidth - @largeMonitorMinimumGutter * 2 - @editGutter * 2);
 
-@mobileRelaxedGridWidth: @mobileWidth;
-@tabletRelaxedGridWidth: ~"calc("@tabletWidth~" + "@relaxedGridGutterWidth~")";
-@computerRelaxedGridWidth: ~"calc("@computerWidth~" + "@relaxedGridGutterWidth~")";
-@largeMonitorRelaxedGridWidth: ~"calc("@largeMonitorWidth~" + "@relaxedGridGutterWidth~")";
+@mobileRelaxedGridWidth: calc(var(--mobile-width, @mobileWidth) + @relaxedGridGutterWidth - @mobileMinimumGutter * 3 - @editGutter * 2);
+@tabletRelaxedGridWidth: calc(var(--tablet-width, @tabletWidth) + @relaxedGridGutterWidth - @tabletMinimumGutter * 3 - @editGutter * 2);
+@computerRelaxedGridWidth: calc(var(--computer-width, @computerWidth) + @relaxedGridGutterWidth - @computerMinimumGutter * 3 - @editGutter * 2);
+@largeMonitorRelaxedGridWidth: calc(var(--large-monitor-width, @largeMonitorWidth) + @relaxedGridGutterWidth - @largeMonitorMinimumGutter * 3 - @editGutter * 2);
 
-@mobileVeryRelaxedGridWidth: @mobileWidth;
-@tabletVeryRelaxedGridWidth: ~"calc("@tabletWidth~" + "@veryRelaxedGridGutterWidth~")";
-@computerVeryRelaxedGridWidth: ~"calc("@computerWidth~" + "@veryRelaxedGridGutterWidth~")";
-@largeMonitorVeryRelaxedGridWidth: ~"calc("@largeMonitorWidth~" + "@veryRelaxedGridGutterWidth~")";
+@mobileVeryRelaxedGridWidth: calc(var(--mobile-width, @mobileWidth) @veryRelaxedGridGutterWidth - @mobileMinimumGutter * 4 - @editGutter * 2);
+@tabletVeryRelaxedGridWidth: calc(var(--tablet-width, @tabletWidth) @veryRelaxedGridGutterWidth - @tabletMinimumGutter * 4 - @editGutter * 2);
+@computerVeryRelaxedGridWidth: calc(var(--computer-width, @computerWidth) @veryRelaxedGridGutterWidth - @computerMinimumGutter * 4 - @editGutter * 2);
+@largeMonitorVeryRelaxedGridWidth: calc(var(--large-monitor-width, @largeMonitorWidth) @veryRelaxedGridGutterWidth - @largeMonitorMinimumGutter * 4 - @editGutter * 2);
 
 /*-------------------
        Types

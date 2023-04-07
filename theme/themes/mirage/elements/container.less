@@ -38,6 +38,9 @@
 /* Mobile */
 @media @mobile {
   .ui.container,
+  .ui.grid.container,
+  .ui.relaxed.grid.container,
+  .ui.very.relaxed.grid.container,
   #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
   [class~="view-defaultview"] [id="page-document"] > *,
   [class~="view-viewview"] [id="page-document"] > *,
@@ -54,19 +57,22 @@
     margin-right: @mobileGutter;
   }
   .ui.grid.container {
-    width: @mobileGridWidth !important;
+    width: @mobileGridWidth;
   }
   .ui.relaxed.grid.container {
-    width: @mobileRelaxedGridWidth !important;
+    width: @mobileRelaxedGridWidth;
   }
   .ui.very.relaxed.grid.container {
-    width: @mobileVeryRelaxedGridWidth !important;
+    width: @mobileVeryRelaxedGridWidth;
   }
 }
 
 /* Tablet */
 @media @tablet {
   .ui.container,
+  .ui.grid.container,
+  .ui.relaxed.grid.container,
+  .ui.very.relaxed.grid.container,
   #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
   [class~="view-defaultview"] [id="page-document"] > *,
   [class~="view-viewview"] [id="page-document"] > *,
@@ -83,18 +89,21 @@
     margin-right: @tabletGutter;
   }
   .ui.grid.container {
-    width: @tabletGridWidth !important;
+    width: @tabletGridWidth;
   }
   .ui.relaxed.grid.container {
-    width: @tabletRelaxedGridWidth !important;
+    width: @tabletRelaxedGridWidth;
   }
   .ui.very.relaxed.grid.container {
-    width: @tabletVeryRelaxedGridWidth !important;
+    width: @tabletVeryRelaxedGridWidth;
   }
 }
 
 .innerTablet({
   .ui.container,
+  .ui.grid.container,
+  .ui.relaxed.grid.container,
+  .ui.very.relaxed.grid.container,
   #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
   &[class~="view-defaultview"] [id="page-document"] > *,
   &[class~="view-viewview"] [id="page-document"] > *,
@@ -113,6 +122,9 @@
 /* Small Monitor */
 @media @smallMonitor {
   .ui.container,
+  .ui.grid.container,
+  .ui.relaxed.grid.container,
+  .ui.very.relaxed.grid.container,
   #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
   [class~="view-defaultview"] [id="page-document"] > *,
   [class~="view-viewview"] [id="page-document"] > *,
@@ -129,18 +141,21 @@
     margin-right: @computerGutter;
   }
   .ui.grid.container {
-    width: @computerGridWidth !important;
+    width: @computerGridWidth;
   }
   .ui.relaxed.grid.container {
-    width: @computerRelaxedGridWidth !important;
+    width: @computerRelaxedGridWidth;
   }
   .ui.very.relaxed.grid.container {
-    width: @computerVeryRelaxedGridWidth !important;
+    width: @computerVeryRelaxedGridWidth;
   }
 }
 
 .innerSmallMonitor({
   .ui.container,
+  .ui.grid.container,
+  .ui.relaxed.grid.container,
+  .ui.very.relaxed.grid.container,
   #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
   &[class~="view-defaultview"] [id="page-document"] > *,
   &[class~="view-viewview"] [id="page-document"] > *,
@@ -159,6 +174,9 @@
 /* Large Monitor */
 @media @largeMonitor {
   .ui.container,
+  .ui.grid.container,
+  .ui.relaxed.grid.container,
+  .ui.very.relaxed.grid.container,
   #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
   [class~="view-defaultview"] [id="page-document"] > *,
   [class~="view-viewview"] [id="page-document"] > *,
@@ -175,18 +193,21 @@
     margin-right: @largeMonitorGutter;
   }
   .ui.grid.container {
-    width: @largeMonitorGridWidth !important;
+    width: @largeMonitorGridWidth;
   }
   .ui.relaxed.grid.container {
-    width: @largeMonitorRelaxedGridWidth !important;
+    width: @largeMonitorRelaxedGridWidth;
   }
   .ui.very.relaxed.grid.container {
-    width: @largeMonitorVeryRelaxedGridWidth !important;
+    width: @largeMonitorVeryRelaxedGridWidth;
   }
 }
 
 .innerLargeMonitor({
   .ui.container,
+  .ui.grid.container,
+  .ui.relaxed.grid.container,
+  .ui.very.relaxed.grid.container,
   #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
   &[class~="view-defaultview"] [id="page-document"] > *,
   &[class~="view-viewview"] [id="page-document"] > *,
@@ -205,6 +226,9 @@
 /* Narrow Monitor */
 @media @narrowMonitor {
   .ui.container.narrow_width,
+  .ui.grid.container.narrow_width,
+  .ui.relaxed.grid.container.narrow_width,
+  .ui.very.relaxed.grid.container.narrow_width,
   #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"].has--size--narrow_width,
   [class~="narrow_view"] [id="page-document"] > *,
   #main .narrow_width,
@@ -217,6 +241,9 @@
 
 .innerNarrowMonitor({
   .ui.container.narrow_width,
+  .ui.grid.container.narrow_width,
+  .ui.relaxed.grid.container.narrow_width,
+  .ui.very.relaxed.grid.container.narrow_width,
   #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"].has--size--narrow_width,
   &[class~="narrow_view"] [id="page-document"] > *,
   #main .narrow_width,
@@ -228,6 +255,9 @@
 /* Wide Monitor */
 @media @wideMonitor {
   .ui.container.wide_width,
+  .ui.grid.container.wide_width,
+  .ui.relaxed.grid.container.wide_width,
+  .ui.very.relaxed.grid.container.wide_width,
   #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"].has--size--wide_width,
   [class~="wide_view"] [id="page-document"] > *,
   #main .wide_width,
@@ -240,6 +270,9 @@
 
 .innerWideMonitor({
   .ui.container.wide_width,
+  .ui.grid.container.wide_width,
+  .ui.relaxed.grid.container.wide_width,
+  .ui.very.relaxed.grid.container.wide_width,
   #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"].has--size--wide_width,
   &[class~="wide_view"] [id="page-document"] > *,
   #main .wide_width,
@@ -283,6 +316,40 @@ body:not(.section-add):not(.section-edit) {
 
 .section-add,
 .section-edit {
+  #page-edit > .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"] {
+    @media @mobile {
+      --edit-gutter: calc(@editMinimumGutter - @mobileMinimumGutter);
+    }
+
+    @media @tablet {
+      --edit-gutter: calc(@editMinimumGutter - @tabletMinimumGutter);
+    }
+
+    @media @smallMonitor {
+      --edit-gutter: calc(@editMinimumGutter - @computerMinimumGutter);
+    }
+
+    @media @largeMonitor {
+      --edit-gutter: calc(@editMinimumGutter - @largeMonitorMinimumGutter);
+    }
+
+    @media @narrowMonitor {
+      &.has--size--narrow_width {
+        --edit-gutter: calc(@editMinimumGutter - @narrowMonitorMinimumGutter);
+      }
+    }
+
+    @media @wideMonitor {
+      &.has--size--wide_width {
+        --edit-gutter: calc(@editMinimumGutter - @wideMonitorMinimumGutter);
+      }
+    }
+
+    > * {
+      --edit-gutter: 0px;
+    }
+  }
+  
   #main {
     width: calc(100% - @toolbarWidthCSS - @sidebarWidthCSS);
   }

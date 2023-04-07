@@ -1216,9 +1216,14 @@
 @toolbarWidthCSS: var(--toolbar-width, 0px);
 @sidebarWidthCSS: var(--sidebar-width, 0px);
 @scrollbarWidthCSS: var(--scrollbar-width, 0px);
-@parentGutter: calc((@pageFullWidth - 100%) / 2);
-@pageOffsetWidth: calc(@toolbarWidthCSS + @sidebarWidthCSS + @scrollbarWidthCSS);
-@pageFullWidth: calc(100vw - @pageOffsetWidth);
-@pageFullWidthEdit: calc(100vw - @pageOffsetWidth - 4rem);
+@editMinimumGutter: 3rem;
+@editGutter: var(--edit-gutter, 0px);
+@parentGutter: ~"@{pageFullWidth} - 100%) / 2";
+@pageOffsetWidth: ~"@{toolbarWidthCSS} + @{sidebarWidthCSS} + @{scrollbarWidthCSS}";
+@pageFullWidth: calc(100vw - (@pageOffsetWidth));
+@pageFullWidthEdit: calc(100vw - (@pageOffsetWidth + (@editMinimumGutter) * 2));
 @pageHalfWidth: calc(50% + @parentGutter);
 @offsetWidth: calc(@toolbarWidthCSS + @sidebarWidthCSS);
+
+@view: ~"body:not(.section-edit):not(.section-add)";
+@edit: ~"body.section-edit,body.section-add";
