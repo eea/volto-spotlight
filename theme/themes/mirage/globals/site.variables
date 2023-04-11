@@ -1218,12 +1218,15 @@
 @scrollbarWidthCSS: var(--scrollbar-width, 0px);
 @editMinimumGutter: 3rem;
 @editGutter: var(--edit-gutter, 0px);
-@parentGutter: ~"@{pageFullWidth} - 100%) / 2";
+@parentGutter: ~"(@{pageFullWidth} - 100%) / 2";
 @pageOffsetWidth: ~"@{toolbarWidthCSS} + @{sidebarWidthCSS} + @{scrollbarWidthCSS}";
-@pageFullWidth: calc(100vw - (@pageOffsetWidth));
-@pageFullWidthEdit: calc(100vw - (@pageOffsetWidth + (@editMinimumGutter) * 2));
-@pageHalfWidth: calc(50% + @parentGutter);
-@offsetWidth: calc(@toolbarWidthCSS + @sidebarWidthCSS);
+@offsetWidth: ~"@{toolbarWidthCSS} + @{sidebarWidthCSS}";
+@pageFullWidth: ~"var(--vw, 1vw) * 100 - (@{offsetWidth})";
+@pageFullWidthEdit: ~"var(--vw, 1vw) * 100 - (@{offsetWidth} + @{editMinimumGutter} * 2)";
+@pageFullHeight: ~"var(--vh, 1vh) * 100";
+@pageHalfWidth: ~"var(--vw, 1vw) * 50 - (@{offsetWidth}) / 2";
+@pageHalfWidthEdit: ~"var(--vw, 1vw) * 50 - (@{offsetWidth} + @{editMinimumGutter} * 2) / 2";
+@pageHalfHeight: ~"var(--vh, 1vh) * 100";
 
 @view: ~"body:not(.section-edit):not(.section-add)";
 @edit: ~"body.section-edit,body.section-add";
