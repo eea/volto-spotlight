@@ -6,9 +6,21 @@
 /*-------------------
       CONTENT BOX
 --------------------*/
+@{view} {
+  .content-box::before {
+    .full-width();
+  }
+}
+
+@{edit} {
+  .content-box::before {
+    .full-width-edit();
+  }
+}
+
 .content-box::before {
-  .full-width();
-  position: absolute;
+  position: absolute !important;
+  z-index: -1 !important;
   content: '';
   display: block;
   background-color: inherit;

@@ -6,10 +6,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import cx from 'classnames';
 import isFunction from 'lodash/isFunction';
 import find from 'lodash/find';
 import { Card, Input, List } from 'semantic-ui-react';
 import { updateContent, deleteContent } from '@plone/volto/actions';
+import { BodyClass } from '@plone/volto/helpers';
 import config from '@plone/volto/registry';
 
 /**
@@ -168,60 +170,65 @@ class Spotlight extends Component {
   render() {
     if (!this.state.editPermission) return null;
     return (
-      this.state.open && (
-        <>
-          <Card ref={this.commandMenuElement} id="spotlight">
-            <Input
-              ref={this.searchElement}
-              placeholder="Type to search commands..."
-              focus={this.open}
-              value={this.state.search}
-              onChange={(event) => {
-                this.setState({
-                  search: event.target.value,
-                  selectedCommand: 0,
-                });
-              }}
-              transparent
-            />
-            <Card.Content>
-              <List selection verticalAlign="middle">
-                {this.state.commands.map((command, index) => {
-                  const title = isFunction(command.title)
-                    ? command.title({
-                        ...this.props,
-                        search: this.state.search,
-                      })
-                    : command.title;
-                  return (
-                    <List.Item
-                      key={`Spotlight-${index}`}
-                      active={this.state.selectedCommand === index}
-                      onClick={() => {
-                        command.action({
+      <>
+        <BodyClass
+          className={cx({ 'in-cypress': __CLIENT__ && !!window.Cypress })}
+        />
+        {this.state.open && (
+          <>
+            <Card ref={this.commandMenuElement} id="spotlight">
+              <Input
+                ref={this.searchElement}
+                placeholder="Type to search commands..."
+                focus={this.open}
+                value={this.state.search}
+                onChange={(event) => {
+                  this.setState({
+                    search: event.target.value,
+                    selectedCommand: 0,
+                  });
+                }}
+                transparent
+              />
+              <Card.Content>
+                <List selection verticalAlign="middle">
+                  {this.state.commands.map((command, index) => {
+                    const title = isFunction(command.title)
+                      ? command.title({
                           ...this.props,
                           search: this.state.search,
-                        });
-                        this.setState({
-                          open: false,
-                          search: '',
-                          selectedCommand: 0,
-                        });
-                      }}
-                      onMouseEnter={() =>
-                        this.setState({ selectedCommand: index })
-                      }
-                    >
-                      <List.Content>{title}</List.Content>
-                    </List.Item>
-                  );
-                })}
-              </List>
-            </Card.Content>
-          </Card>
-          <div id="spotlight-backdrop" />
-        </>
-      )
+                        })
+                      : command.title;
+                    return (
+                      <List.Item
+                        key={`Spotlight-${index}`}
+                        active={this.state.selectedCommand === index}
+                        onClick={() => {
+                          command.action({
+                            ...this.props,
+                            search: this.state.search,
+                          });
+                          this.setState({
+                            open: false,
+                            search: '',
+                            selectedCommand: 0,
+                          });
+                        }}
+                        onMouseEnter={() =>
+                          this.setState({ selectedCommand: index })
+                        }
+                      >
+                        <List.Content>{title}</List.Content>
+                      </List.Item>
+                    );
+                  })}
+                </List>
+              </Card.Content>
+            </Card>
+            <div id="spotlight-backdrop" />
+          </>
+        )}
+      </>
     );
   }
 }
