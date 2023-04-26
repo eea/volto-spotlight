@@ -41,6 +41,7 @@
   .ui.grid.container,
   .ui.relaxed.grid.container,
   .ui.very.relaxed.grid.container,
+  #page-edit .ui.container > form,
   #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
   [class~="view-defaultview"] [id="page-document"] > *,
   [class~="view-viewview"] [id="page-document"] > *,
@@ -73,6 +74,7 @@
   .ui.grid.container,
   .ui.relaxed.grid.container,
   .ui.very.relaxed.grid.container,
+  #page-edit .ui.container > form,
   #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
   [class~="view-defaultview"] [id="page-document"] > *,
   [class~="view-viewview"] [id="page-document"] > *,
@@ -104,6 +106,7 @@
   .ui.grid.container,
   .ui.relaxed.grid.container,
   .ui.very.relaxed.grid.container,
+  #page-edit .ui.container > form,
   #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
   &[class~="view-defaultview"] [id="page-document"] > *,
   &[class~="view-viewview"] [id="page-document"] > *,
@@ -125,6 +128,7 @@
   .ui.grid.container,
   .ui.relaxed.grid.container,
   .ui.very.relaxed.grid.container,
+  #page-edit .ui.container > form,
   #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
   [class~="view-defaultview"] [id="page-document"] > *,
   [class~="view-viewview"] [id="page-document"] > *,
@@ -156,6 +160,7 @@
   .ui.grid.container,
   .ui.relaxed.grid.container,
   .ui.very.relaxed.grid.container,
+  #page-edit .ui.container > form,
   #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
   &[class~="view-defaultview"] [id="page-document"] > *,
   &[class~="view-viewview"] [id="page-document"] > *,
@@ -177,6 +182,7 @@
   .ui.grid.container,
   .ui.relaxed.grid.container,
   .ui.very.relaxed.grid.container,
+  #page-edit .ui.container > form,
   #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
   [class~="view-defaultview"] [id="page-document"] > *,
   [class~="view-viewview"] [id="page-document"] > *,
@@ -208,6 +214,7 @@
   .ui.grid.container,
   .ui.relaxed.grid.container,
   .ui.very.relaxed.grid.container,
+  #page-edit .ui.container > form,
   #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
   &[class~="view-defaultview"] [id="page-document"] > *,
   &[class~="view-viewview"] [id="page-document"] > *,
@@ -229,6 +236,7 @@
   .ui.grid.container.narrow_width,
   .ui.relaxed.grid.container.narrow_width,
   .ui.very.relaxed.grid.container.narrow_width,
+  #page-edit .ui.container > form,
   #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"].has--size--narrow_width,
   [class~="narrow_view"] [id="page-document"] > *,
   #main .narrow_width,
@@ -244,6 +252,7 @@
   .ui.grid.container.narrow_width,
   .ui.relaxed.grid.container.narrow_width,
   .ui.very.relaxed.grid.container.narrow_width,
+  #page-edit .ui.container > form,
   #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"].has--size--narrow_width,
   &[class~="narrow_view"] [id="page-document"] > *,
   #main .narrow_width,
@@ -258,6 +267,7 @@
   .ui.grid.container.wide_width,
   .ui.relaxed.grid.container.wide_width,
   .ui.very.relaxed.grid.container.wide_width,
+  #page-edit .ui.container > form,
   #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"].has--size--wide_width,
   [class~="wide_view"] [id="page-document"] > *,
   #main .wide_width,
@@ -273,6 +283,7 @@
   .ui.grid.container.wide_width,
   .ui.relaxed.grid.container.wide_width,
   .ui.very.relaxed.grid.container.wide_width,
+  #page-edit .ui.container > form,
   #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"].has--size--wide_width,
   &[class~="wide_view"] [id="page-document"] > *,
   #main .wide_width,
@@ -314,8 +325,7 @@ body:not(.section-add):not(.section-edit) {
         Edit / Add section
 *******************************/
 
-.section-add,
-.section-edit {
+@{edit} {
   #page-edit > .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"] {
     @media @mobile {
       --edit-gutter: calc(@editMinimumGutter - @mobileMinimumGutter);
@@ -352,6 +362,12 @@ body:not(.section-add):not(.section-edit) {
   
   #main {
     width: calc(100% - @toolbarWidthCSS - @sidebarWidthCSS);
+    z-index: 1;
+  }
+
+  #toolbar,
+  #sidebar {
+    z-index: 0;
   }
 
   [class*="block-editor"] {
@@ -363,9 +379,16 @@ body:not(.section-add):not(.section-edit) {
     margin-bottom: 0;
   }
 
+  #page-edit > .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"].has--size--full,
+  #page-edit > .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"].full-width,
   .has--size--full,
   .full-width {
     .full-width-edit();
+  }
+
+  #page-edit > .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"].has--size--full,
+  #page-edit > .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"].full-width {
+    z-index: unset !important;
   }
 
   .drag.handle.wrapper {

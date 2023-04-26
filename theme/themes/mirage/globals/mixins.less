@@ -43,24 +43,12 @@
   position: relative;
   flex: 0 0 auto;
   width: calc(@pageHalfWidth) !important;
-
-  & when (@maxWidth = unset) {
-    max-width: unset !important;
-  }
-  & when not(@maxWidth = unset) {
-    max-width: @maxWidth !important;
-  }
+  max-width: @maxWidth !important;
 }
 
 .half-width-edit(@maxWidth: unset) {
   position: relative;
   flex: 0 0 auto;
   width: calc(@pageHalfWidthEdit) !important;
-
-  & when (@maxWidth = unset) {
-    max-width: unset !important;
-  }
-  & when not(@maxWidth = unset) {
-    max-width: @maxWidth !important;
-  }
+  max-width: @maxWidth !important;
 }
