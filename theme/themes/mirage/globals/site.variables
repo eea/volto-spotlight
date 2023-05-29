@@ -328,6 +328,7 @@
 @tablet           : breakpoint(@tabletBreakpoint, @largestTabletScreen);
 @tabletUp         : breakpoint(@computerBreakpoint, 0);
 @smallMonitor     : breakpoint(@computerBreakpoint, @largestSmallMonitor);
+@smallMonitorUp   : breakpoint(@computerBreakpoint, 0);
 @largeMonitor     : breakpoint(@largeMonitorBreakpoint, 0);
 @narrowMonitor    : breakpoint(@narrowBreakpoint, 0);
 @wideMonitor      : breakpoint(@laptopMonitorBreakpoint, 0);
