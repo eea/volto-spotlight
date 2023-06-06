@@ -57,7 +57,7 @@
   #main .has--size--container_width,
   #main .has--size--narrow_width,
   #main .has--size--wide_width {
-    width: @mobileWidthCSS;
+    width: @mobileWidthCSS !important;
     margin-left: @mobileGutter !important;
     margin-right: @mobileGutter !important;
   }
@@ -90,7 +90,7 @@
   #main .has--size--container_width,
   #main .has--size--narrow_width,
   #main .has--size--wide_width {
-    width: @tabletWidthCSS;
+    width: @tabletWidthCSS !important;
     margin-left: @tabletGutter !important;
     margin-right: @tabletGutter !important;
   }
@@ -144,7 +144,7 @@
   #main .has--size--container_width,
   #main .has--size--narrow_width,
   #main .has--size--wide_width {
-    width: @computerWidthCSS;
+    width: @computerWidthCSS !important;
     margin-left: @computerGutter !important;
     margin-right: @computerGutter !important;
   }
@@ -198,7 +198,7 @@
   #main .has--size--container_width,
   #main .has--size--narrow_width,
   #main .has--size--wide_width {
-    width: @largeMonitorWidthCSS;
+    width: @largeMonitorWidthCSS !important;
     margin-left: @largeMonitorGutter !important;
     margin-right: @largeMonitorGutter !important;
   }
@@ -245,7 +245,7 @@
   [class~="narrow_view"] [id="page-document"] > *,
   #main .narrow_width,
   #main .has--size--narrow_width {
-    width: @narrowMonitorWidthCSS;
+    width: @narrowMonitorWidthCSS !important;
     margin-left: @narrowMonitorGutter !important;
     margin-right: @narrowMonitorGutter !important;
   }
@@ -276,7 +276,7 @@
   [class~="wide_view"] [id="page-document"] > *,
   #main .wide_width,
   #main .has--size--wide_width {
-    width: @wideMonitorWidthCSS;
+    width: @wideMonitorWidthCSS !important;
     margin-left: @wideMonitorGutter !important;
     margin-right: @wideMonitorGutter !important;
   }
@@ -363,7 +363,7 @@ body:not(.section-add):not(.section-edit) {
       --edit-gutter: 0px;
     }
   }
-  
+
   #main {
     width: calc(100% - @toolbarWidthCSS - @sidebarWidthCSS);
     z-index: 1;
@@ -398,7 +398,7 @@ body:not(.section-add):not(.section-edit) {
   .drag.handle.wrapper {
     margin-left: -27px !important;
   }
-  
+
   .block .delete-button {
     margin-right: -27px !important;
   }
