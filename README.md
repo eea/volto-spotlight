@@ -22,9 +22,22 @@ Demo GIF
 
 ## Getting started
 
+### Try volto-spotlight with Docker
+
+      git clone https://github.com/eea/volto-spotlight.git
+      cd volto-spotlight
+      make
+      make start
+
+Go to http://localhost:3000
+
 ### Add volto-spotlight to your Volto project
 
 1. Make sure you have a [Plone backend](https://plone.org/download) up-and-running at http://localhost:8080/Plone
+
+   ```Bash
+   docker compose up backend
+   ```
 
 1. Start Volto frontend
 
