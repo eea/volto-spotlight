@@ -78,9 +78,9 @@ class Spotlight extends Component {
       prevState.search !== this.state.search ||
       prevProps.location.pathname !== this.props.location.pathname
     ) {
-      this.setState({
-        commands: this.getFilteredCommands(this.state.search),
-      });
+      this.setState((state) => ({
+        commands: this.getFilteredCommands(state.search),
+      }));
     }
     if (
       JSON.stringify(prevProps.objectActions) !==
@@ -108,7 +108,9 @@ class Spotlight extends Component {
       if (this.state.selectedCommand === 0) {
         this.setState({ selectedCommand: maxResults - 1 });
       } else {
-        this.setState({ selectedCommand: this.state.selectedCommand - 1 });
+        this.setState((state) => ({
+          selectedCommand: state.selectedCommand - 1,
+        }));
       }
       event.preventDefault();
     }
@@ -116,7 +118,9 @@ class Spotlight extends Component {
       if (this.state.selectedCommand === maxResults - 1) {
         this.setState({ selectedCommand: 0 });
       } else {
-        this.setState({ selectedCommand: this.state.selectedCommand + 1 });
+        this.setState((state) => ({
+          selectedCommand: state.selectedCommand + 1,
+        }));
       }
       event.preventDefault();
     }
@@ -133,8 +137,7 @@ class Spotlight extends Component {
       event.preventDefault();
     }
     if ((event.metaKey || event.ctrlKey) && event.key === 'k') {
-      const open = !this.state.open;
-      this.setState({ open }, () => {
+      this.setState(({ open }) => {
         const { inputRef = {} } = this.searchElement.current || {};
         if (!inputRef.current) return;
         if (open) {
