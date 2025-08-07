@@ -72,6 +72,28 @@ Go to http://localhost:3000
 
 1. Happy editing!
 
+## Purpose
+
+The `volto-spotlight` add-on provides a spotlight feature for Volto, allowing users to quickly access and execute various commands through a spotlight search interface. This feature enhances the user experience by providing a convenient way to perform common actions such as adding, editing, deleting, copying, and pasting content, as well as navigating to different parts of the site.
+
+## Functionality
+
+The spotlight feature in `volto-spotlight` includes the following commands:
+
+- **Add Content**: Allows users to add new content of a specified type.
+- **Edit**: Enables users to edit the current content.
+- **Delete**: Provides an option to delete the current content.
+- **Copy**: Copies the blocks of the current content to the clipboard.
+- **Paste**: Pastes the blocks from the clipboard, replacing the current content blocks.
+- **Go to Path**: Navigates to a specified path within the site.
+- **Go Back**: Navigates back to the previous page.
+- **Go Forward**: Navigates forward to the next page.
+- **Go to Home**: Navigates to the home page.
+- **Go to Control Panel**: Navigates to the control panel.
+- **Logout**: Logs the user out of the site.
+
+The spotlight feature is activated using the keyboard shortcut `Ctrl+K` (or `Cmd+K` on macOS) and provides a search input where users can type commands. The commands are filtered based on the user's input, and the user can navigate through the filtered commands using the arrow keys and execute a command by pressing `Enter`.
+
 ## Release
 
 See [RELEASE.md](https://github.com/eea/volto-spotlight/blob/master/RELEASE.md).
@@ -86,11 +108,6 @@ The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.
 
 See [LICENSE.md](https://github.com/eea/volto-spotlight/blob/master/LICENSE.md) for details.
-
-## Funding
-
-[European Environment Agency (EU)](http://eea.europa.eu)
-ttps://github.com/eea/volto-spotlight/blob/master/LICENSE.md) for details.
 
 ## Funding
 
