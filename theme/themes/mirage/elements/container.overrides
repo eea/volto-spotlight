@@ -52,18 +52,20 @@
   [class*='computer only']:not(.widescreen),
   [class*='large screen only']:not(.widescreen),
   [class*='widescreen hidden'],
-  [class*='or lower hidden']:not(.large.screen):not(.computer):not(.tablet):not(.mobile) {
+  [class*='or lower hidden']:not(.large.screen):not(.computer):not(.tablet):not(
+      .mobile
+    ) {
     display: none !important;
   }
 }
 
 @{edit} {
   &.in-cypress {
-    [class*="block-editor"] {
+    [class*='block-editor'] {
       padding-left: 3rem;
       padding-right: 3rem;
     }
-    
+
     #main {
       width: calc(100% - @toolbarWidthCSS - @sidebarWidthCSS);
     }
@@ -71,9 +73,38 @@
     .drag.handle.wrapper {
       margin-left: -27px !important;
     }
-    
+
     .block .delete-button {
       margin-right: -27px !important;
     }
   }
+}
+
+#main .container_width,
+#main .has--size--container_width,
+#main .has--size--narrow_width,
+#main .has--size--wide_width,
+#main .narrow_width,
+#main .wide_width,
+#page-edit
+  .ui.container
+  > .blocks-form
+  > fieldset
+  > [data-rbd-droppable-id]
+  > [class*='block-editor'],
+#page-edit .ui.container > form,
+.ui.container,
+.ui.grid.container,
+.ui.relaxed.grid.container,
+.ui.very.relaxed.grid.container,
+[class~='narrow_view'] [id='page-document'] > *,
+[class~='view-defaultview'] [id='page-document'] > *,
+[class~='view-viewview'] [id='page-document'] > *,
+[class~='wide_view'] [id='page-document'] > * {
+  width: calc(
+    var(--mobile-width, 100%) - var(--m-gutter, 1rem) * 2 -
+      var(--edit-gutter, 0px) * 2
+  ) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }

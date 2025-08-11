@@ -12,8 +12,8 @@
             Theme
 *******************************/
 
-@type    : 'element';
-@element : 'container';
+@type: 'element';
+@element: 'container';
 
 @import (multiple) '../../theme.config';
 
@@ -25,13 +25,14 @@
 .ui.container {
   display: block;
   max-width: @maxWidth;
-  transition: width 0.3s @transitionEffect,
+  transition:
+    width 0.3s @transitionEffect,
     margin-left 0.3s @transitionEffect,
     margin-right 0.3s @transitionEffect;
 }
 
 #main {
-  max-width: calc(100% - (@offsetWidth));
+  max-width: 100% !important;
 }
 
 #page-document.ui.container,
@@ -46,11 +47,16 @@
   .ui.relaxed.grid.container,
   .ui.very.relaxed.grid.container,
   #page-edit .ui.container > form,
-  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
-  [class~="view-defaultview"] [id="page-document"] > *,
-  [class~="view-viewview"] [id="page-document"] > *,
-  [class~="narrow_view"] [id="page-document"] > *,
-  [class~="wide_view"] [id="page-document"] > *,
+  #page-edit
+    .ui.container
+    > .blocks-form
+    > fieldset
+    > [data-rbd-droppable-id]
+    > [class*='block-editor'],
+  [class~='view-defaultview'] [id='page-document'] > *,
+  [class~='view-viewview'] [id='page-document'] > *,
+  [class~='narrow_view'] [id='page-document'] > *,
+  [class~='wide_view'] [id='page-document'] > *,
   #main .container_width,
   #main .narrow_width,
   #main .wide_width,
@@ -79,11 +85,16 @@
   .ui.relaxed.grid.container,
   .ui.very.relaxed.grid.container,
   #page-edit .ui.container > form,
-  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
-  [class~="view-defaultview"] [id="page-document"] > *,
-  [class~="view-viewview"] [id="page-document"] > *,
-  [class~="narrow_view"] [id="page-document"] > *,
-  [class~="wide_view"] [id="page-document"] > *,
+  #page-edit
+    .ui.container
+    > .blocks-form
+    > fieldset
+    > [data-rbd-droppable-id]
+    > [class*='block-editor'],
+  [class~='view-defaultview'] [id='page-document'] > *,
+  [class~='view-viewview'] [id='page-document'] > *,
+  [class~='narrow_view'] [id='page-document'] > *,
+  [class~='wide_view'] [id='page-document'] > *,
   #main .container_width,
   #main .narrow_width,
   #main .wide_width,
@@ -111,11 +122,11 @@
   .ui.relaxed.grid.container,
   .ui.very.relaxed.grid.container,
   #page-edit .ui.container > form,
-  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
-  &[class~="view-defaultview"] [id="page-document"] > *,
-  &[class~="view-viewview"] [id="page-document"] > *,
-  &[class~="narrow_view"] [id="page-document"] > *,
-  &[class~="wide_view"] [id="page-document"] > *,
+  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*='block-editor'],
+  &[class~='view-defaultview'] [id='page-document'] > *,
+  &[class~='view-viewview'] [id='page-document'] > *,
+  &[class~='narrow_view'] [id='page-document'] > *,
+  &[class~='wide_view'] [id='page-document'] > *,
   #main .container_width,
   #main .narrow_width,
   #main .wide_width,
@@ -133,11 +144,16 @@
   .ui.relaxed.grid.container,
   .ui.very.relaxed.grid.container,
   #page-edit .ui.container > form,
-  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
-  [class~="view-defaultview"] [id="page-document"] > *,
-  [class~="view-viewview"] [id="page-document"] > *,
-  [class~="narrow_view"] [id="page-document"] > *,
-  [class~="wide_view"] [id="page-document"] > *,
+  #page-edit
+    .ui.container
+    > .blocks-form
+    > fieldset
+    > [data-rbd-droppable-id]
+    > [class*='block-editor'],
+  [class~='view-defaultview'] [id='page-document'] > *,
+  [class~='view-viewview'] [id='page-document'] > *,
+  [class~='narrow_view'] [id='page-document'] > *,
+  [class~='wide_view'] [id='page-document'] > *,
   #main .container_width,
   #main .narrow_width,
   #main .wide_width,
@@ -165,11 +181,11 @@
   .ui.relaxed.grid.container,
   .ui.very.relaxed.grid.container,
   #page-edit .ui.container > form,
-  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
-  &[class~="view-defaultview"] [id="page-document"] > *,
-  &[class~="view-viewview"] [id="page-document"] > *,
-  &[class~="narrow_view"] [id="page-document"] > *,
-  &[class~="wide_view"] [id="page-document"] > *,
+  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*='block-editor'],
+  &[class~='view-defaultview'] [id='page-document'] > *,
+  &[class~='view-viewview'] [id='page-document'] > *,
+  &[class~='narrow_view'] [id='page-document'] > *,
+  &[class~='wide_view'] [id='page-document'] > *,
   #main .container_width,
   #main .narrow_width,
   #main .wide_width,
@@ -187,11 +203,16 @@
   .ui.relaxed.grid.container,
   .ui.very.relaxed.grid.container,
   #page-edit .ui.container > form,
-  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
-  [class~="view-defaultview"] [id="page-document"] > *,
-  [class~="view-viewview"] [id="page-document"] > *,
-  [class~="narrow_view"] [id="page-document"] > *,
-  [class~="wide_view"] [id="page-document"] > *,
+  #page-edit
+    .ui.container
+    > .blocks-form
+    > fieldset
+    > [data-rbd-droppable-id]
+    > [class*='block-editor'],
+  [class~='view-defaultview'] [id='page-document'] > *,
+  [class~='view-viewview'] [id='page-document'] > *,
+  [class~='narrow_view'] [id='page-document'] > *,
+  [class~='wide_view'] [id='page-document'] > *,
   #main .container_width,
   #main .narrow_width,
   #main .wide_width,
@@ -219,11 +240,11 @@
   .ui.relaxed.grid.container,
   .ui.very.relaxed.grid.container,
   #page-edit .ui.container > form,
-  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"],
-  &[class~="view-defaultview"] [id="page-document"] > *,
-  &[class~="view-viewview"] [id="page-document"] > *,
-  &[class~="narrow_view"] [id="page-document"] > *,
-  &[class~="wide_view"] [id="page-document"] > *,
+  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*='block-editor'],
+  &[class~='view-defaultview'] [id='page-document'] > *,
+  &[class~='view-viewview'] [id='page-document'] > *,
+  &[class~='narrow_view'] [id='page-document'] > *,
+  &[class~='wide_view'] [id='page-document'] > *,
   #main .container_width,
   #main .narrow_width,
   #main .wide_width,
@@ -241,8 +262,13 @@
   .ui.relaxed.grid.container.narrow_width,
   .ui.very.relaxed.grid.container.narrow_width,
   #page-edit .ui.container > form,
-  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"].has--size--narrow_width,
-  [class~="narrow_view"] [id="page-document"] > *,
+  #page-edit
+    .ui.container
+    > .blocks-form
+    > fieldset
+    > [data-rbd-droppable-id]
+    > [class*='block-editor'].has--size--narrow_width,
+  [class~='narrow_view'] [id='page-document'] > *,
   #main .narrow_width,
   #main .has--size--narrow_width {
     width: @narrowMonitorWidthCSS !important;
@@ -257,8 +283,8 @@
   .ui.relaxed.grid.container.narrow_width,
   .ui.very.relaxed.grid.container.narrow_width,
   #page-edit .ui.container > form,
-  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"].has--size--narrow_width,
-  &[class~="narrow_view"] [id="page-document"] > *,
+  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*='block-editor'].has--size--narrow_width,
+  &[class~='narrow_view'] [id='page-document'] > *,
   #main .narrow_width,
   #main .has--size--narrow_width {
     --narrow-monitor-width: 100%;
@@ -272,8 +298,13 @@
   .ui.relaxed.grid.container.wide_width,
   .ui.very.relaxed.grid.container.wide_width,
   #page-edit .ui.container > form,
-  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"].has--size--wide_width,
-  [class~="wide_view"] [id="page-document"] > *,
+  #page-edit
+    .ui.container
+    > .blocks-form
+    > fieldset
+    > [data-rbd-droppable-id]
+    > [class*='block-editor'].has--size--wide_width,
+  [class~='wide_view'] [id='page-document'] > *,
   #main .wide_width,
   #main .has--size--wide_width {
     width: @wideMonitorWidthCSS !important;
@@ -288,8 +319,8 @@
   .ui.relaxed.grid.container.wide_width,
   .ui.very.relaxed.grid.container.wide_width,
   #page-edit .ui.container > form,
-  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"].has--size--wide_width,
-  &[class~="wide_view"] [id="page-document"] > *,
+  #page-edit .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*='block-editor'].has--size--wide_width,
+  &[class~='wide_view'] [id='page-document'] > *,
   #main .wide_width,
   #main .has--size--wide_width {
     --wide-monitor-width: 100%;
@@ -299,7 +330,6 @@
 /*******************************
              Types
 *******************************/
-
 
 /* Text Container */
 .ui.text.container {
@@ -330,7 +360,12 @@ body:not(.section-add):not(.section-edit) {
 *******************************/
 
 @{edit} {
-  #page-edit > .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"] {
+  #page-edit
+    > .ui.container
+    > .blocks-form
+    > fieldset
+    > [data-rbd-droppable-id]
+    > [class*='block-editor'] {
     @media @mobile {
       --edit-gutter: calc(@editMinimumGutter - @mobileMinimumGutter);
     }
@@ -374,7 +409,7 @@ body:not(.section-add):not(.section-edit) {
   //   z-index: 1;
   // }
 
-  [class*="block-editor"] {
+  [class*='block-editor'] {
     position: relative;
     margin-bottom: 1.5rem !important;
   }
@@ -383,15 +418,35 @@ body:not(.section-add):not(.section-edit) {
     margin-bottom: 0;
   }
 
-  #page-edit > .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"].has--size--full,
-  #page-edit > .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"].full-width,
+  #page-edit
+    > .ui.container
+    > .blocks-form
+    > fieldset
+    > [data-rbd-droppable-id]
+    > [class*='block-editor'].has--size--full,
+  #page-edit
+    > .ui.container
+    > .blocks-form
+    > fieldset
+    > [data-rbd-droppable-id]
+    > [class*='block-editor'].full-width,
   .has--size--full,
   .full-width {
     .full-width-edit();
   }
 
-  #page-edit > .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"].has--size--full,
-  #page-edit > .ui.container > .blocks-form > fieldset > [data-rbd-droppable-id] > [class*="block-editor"].full-width {
+  #page-edit
+    > .ui.container
+    > .blocks-form
+    > fieldset
+    > [data-rbd-droppable-id]
+    > [class*='block-editor'].has--size--full,
+  #page-edit
+    > .ui.container
+    > .blocks-form
+    > fieldset
+    > [data-rbd-droppable-id]
+    > [class*='block-editor'].full-width {
     z-index: unset !important;
   }
 
@@ -404,24 +459,22 @@ body:not(.section-add):not(.section-edit) {
   }
 }
 
-
 /*******************************
            Variations
 *******************************/
 
-.ui[class*="left aligned"].container {
+.ui[class*='left aligned'].container {
   text-align: left;
 }
-.ui[class*="center aligned"].container {
+.ui[class*='center aligned'].container {
   text-align: center;
 }
-.ui[class*="right aligned"].container {
+.ui[class*='right aligned'].container {
   text-align: right;
 }
 .ui.justified.container {
   text-align: justify;
   hyphens: auto;
 }
-
 
 .loadUIOverrides();
