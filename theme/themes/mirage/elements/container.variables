@@ -8,7 +8,7 @@
 
 /* Minimum Gutter is used to determine  the maximum container width for a given device */
 
-@maxWidth: @containerWidth;
+@maxWidth: 100%;
 @transitionEffect: cubic-bezier(0.6, -0.28, 0.735, 0.045);
 
 /* Devices */
