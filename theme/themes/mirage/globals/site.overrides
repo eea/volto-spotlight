@@ -39,17 +39,26 @@ body {
 
 button:focus-visible,
 a.button:focus-visible,
-.ui.checkbox input[type="checkbox"]:focus-visible,
-.ui.checkbox input[type="radio"]:focus-visible {
+.ui.checkbox input[type='checkbox']:focus-visible,
+.ui.checkbox input[type='radio']:focus-visible {
   outline: @focusVisibleOutline !important;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: @font-lineheight-0;
   letter-spacing: @font-letterspacing-00;
 }
 
-h2, h3, h4, h5, h6 {
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: @headerColor;
 }
 
@@ -57,15 +66,14 @@ h2, h3, h4, h5, h6 {
   color: @contentAreaColor;
 }
 
-[id="page-document"] > *,
-.view-wrapper > *
-{
+[id='page-document'] > *,
+.view-wrapper > * {
   margin-left: auto !important;
   margin-right: auto !important;
 }
 
 // add a 1rem margin top and bottom on all direct styled classes from container
-[class~="container"] > [class*="styled-"] {
+[class~='container'] > [class*='styled-'] {
   margin-top: @rem-space-4;
   margin-bottom: @rem-space-4;
 }
@@ -88,15 +96,23 @@ small {
 
 /* Heading size adjustment */
 @media only screen and (max-width: @largestMobileScreen) {
-  h1 { font-size: @mobileH1; }
-  h2 { font-size: @mobileH2; }
-  h3 { font-size: @mobileH3; }
-  h4 { font-size: @mobileH4; }
+  h1 {
+    font-size: @mobileH1;
+  }
+  h2 {
+    font-size: @mobileH2;
+  }
+  h3 {
+    font-size: @mobileH3;
+  }
+  h4 {
+    font-size: @mobileH4;
+  }
 }
 
 a {
   &:visited {
-    color:  @linkVisitedColor;
+    color: @linkVisitedColor;
   }
   &:active {
     color: @linkActiveColor;
@@ -135,23 +151,25 @@ a {
     visibility: hidden;
   }
   .image {
-   page-break-inside: avoid;  
+    page-break-inside: avoid;
   }
   img {
-   page-break-inside: avoid;  
+    page-break-inside: avoid;
   }
-  .card { 
-  page-break-inside: avoid;  
-
+  .card {
+    page-break-inside: avoid;
   }
-  .grid-block-teaser .card{
-    page-break-inside: auto;  
+  .grid-block-teaser .card {
+    page-break-inside: auto;
   }
 }
 
-
-.color-fg-default { color: @primaryColor !important; }
-.color-bg-default { background-color: @primaryColor !important; }
+.color-fg-default {
+  color: @primaryColor !important;
+}
+.color-bg-default {
+  background-color: @primaryColor !important;
+}
 
 video {
   display: block;
